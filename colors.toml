@@ -1,0 +1,29 @@
+# Desert Gleam - Light theme from Tome
+# Warm beige backgrounds with terracotta accents
+
+accent = "#d4886a"
+cursor = "#d4886a"
+foreground = "#3a3644"
+background = "#faf7f3"
+selection_foreground = "#faf7f3"
+selection_background = "#d4886a"
+
+# Normal colors
+color0 = "#e2d5ca"
+color1 = "#b36667"
+color2 = "#7a9977"
+color3 = "#c68d53"
+color4 = "#7a6d9e"
+color5 = "#d4886a"
+color6 = "#5f8d7c"
+color7 = "#3a3644"
+
+# Bright colors
+color8 = "#d8cbc0"
+color9 = "#c78283"
+color10 = "#94b491"
+color11 = "#d4a574"
+color12 = "#8b8198"
+color13 = "#e5a07a"
+color14 = "#7dbba3"
+color15 = "#4a4653"

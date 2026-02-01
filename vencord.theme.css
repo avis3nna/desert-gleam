@@ -1,0 +1,460 @@
+/**
+ * @name Desert Gleam
+ * @author Omarchy
+ * @version 1.0.0
+ * @description Warm light desert theme (base16)
+ * @source https://github.com/imbypass/base16-Discord
+ */
+
+@import url('https://imbypass.github.io/base16-discord/omarchy-discord.theme.css');
+
+:root {
+    /* Base16 palette */
+    --color00: #faf7f3;
+    --color01: #b36667;
+    --color02: #7a9977;
+    --color03: #c68d53;
+    --color04: #7a6d9e;
+    --color05: #d4886a;
+    --color06: #5f8d7c;
+    --color07: #3a3644;
+    --color08: #b36667;
+    --color09: #c78283;
+    --color10: #c68d53;
+    --color11: #7a9977;
+    --color12: #5f8d7c;
+    --color13: #d4886a;
+    --color14: #7a6d9e;
+    --color15: #3a3644;
+
+    /* Override base03/04 for dark text visible on light background */
+    --base03: #7a7680;
+    --base04: #5a5660;
+
+    /* Background depth variations - creates visual hierarchy through subtle shading.
+       For light theme: darkest = most shaded, lightest = brightest */
+    --bg-darkest:  #efe9e3;  /* Most shaded - server list, user panel, bars */
+    --bg-darker:   #f3efe9;  /* Secondary - channel sidebar, member list */
+    --bg-base:     #faf7f3;  /* Main chat area (matches color00) */
+    --bg-lighter:  #fdfcfa;  /* Interactive - message input, embeds, hover */
+    --bg-lightest: #ffffff;  /* Overlays - popouts, modals, active states */
+}
+
+/* =============================================================================
+   DEPTH HIERARCHY
+
+   Layer 1 (darkest): Server list, user panel, notification bars
+   Layer 2 (darker):  Channel sidebar, member list, title bar
+   Layer 3 (base):    Main chat area
+   Layer 4 (lighter): Message input, embeds, message hover
+   Layer 5 (lightest): Popouts, modals, context menus
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   LAYER 1: DARKEST - Navigation chrome
+   ----------------------------------------------------------------------------- */
+
+/* Server/guild list - the leftmost column */
+nav[class*="guilds_"],
+nav[class*="guilds__"],
+div[class*="guilds_"],
+div[class*="guilds__"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Server list scroll container */
+div[class*="scroller_"][class*="guilds_"],
+div[class*="scroller__"][class*="guilds_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Server list items container */
+ul[class*="tree_"][role="tree"],
+div[class*="listItem_"],
+div[class*="listItem__"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* User panel at bottom of sidebar */
+section[class*="panels_"],
+section[class*="panels__"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Unread message bars */
+div[class*="unreadBar_"],
+div[class*="unreadBar__"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* New messages bar */
+div[class*="newMessagesBar_"],
+div[class*="barBase_"] {
+    background-color: var(--bg-darkest) !important;
+    color: var(--color05) !important;
+    border-top: none !important;
+}
+
+/* Mark as Read button - remove grey background */
+button[class*="barButtonAlt_"] {
+    background-color: transparent !important;
+    padding: 0 !important;
+}
+
+/* Jump to present bar */
+div[class*="jumpToPresentBar_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   LAYER 2: DARKER - Secondary navigation
+   ----------------------------------------------------------------------------- */
+
+/* Channel sidebar */
+nav[class*="sidebar_"][class*="container_"],
+div[class*="sidebar_"][class*="container_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Page container - left border separating server list */
+div[class*="page_"] {
+    border-left: 1px solid var(--bg-darkest) !important;
+}
+
+/* Channel list within sidebar */
+div[class*="sidebarList_"],
+div[class*="sidebarList__"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Member list on right side */
+aside[class*="membersWrap_"],
+div[class*="members_"][role="list"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Title bar / window controls area */
+div[class*="titleBar_"],
+div[class*="titleBar__"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Title within bar (channel header) - exclude toolbar */
+div[class*="bar_"]:not([class*="toolbar_"]) div[class*="title_"],
+div[class*="bar__"]:not([class*="toolbar_"]) div[class*="title_"],
+div[class*="bar_"]:not([class*="toolbar_"]):not([class*="barBase_"]),
+div[class*="bar__"]:not([class*="toolbar_"]):not([class*="barBase_"]) {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Channel header section - bottom border */
+section[class*="title_"][class*="container_"] {
+    border-bottom: 1px solid var(--bg-darkest) !important;
+}
+
+/* Server header / banner area */
+header[class*="header_"][class*="container_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Thread sidebar */
+section[class*="threadSidebar_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   LAYER 3: BASE - Primary content area
+   ----------------------------------------------------------------------------- */
+
+
+/* -----------------------------------------------------------------------------
+   LAYER 4: LIGHTER - Interactive surfaces
+   ----------------------------------------------------------------------------- */
+
+/* Message input scrollable container */
+div[class*="scrollableContainer_"][class*="themedBackground_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Message input inner wrapper */
+div[class*="inner_"][class*="sansAttachButton_"],
+div[class*="inner__"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Buttons container (GIF, emoji, stickers, apps) */
+div[class*="channelBottomBarArea_"] div[class*="buttons_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Attach button wrapper */
+div[class*="attachWrapper_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Embeds (link previews, etc.) */
+article[class*="embedWrapper_"],
+div[class*="embedWrapper_"] {
+    background-color: var(--bg-lighter) !important;
+}
+
+/* Code blocks */
+pre[class*="codeContainer_"],
+code[class*="inlineCode_"] {
+    background-color: var(--bg-lighter) !important;
+}
+
+/* Message hover state */
+div[class*="message_"][class*="cozyMessage_"]:hover,
+li[class*="messageListItem_"]:hover > div[class*="message_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Attachment containers */
+div[class*="attachment_"][class*="newMosaicStyle_"] {
+    background-color: var(--bg-lighter) !important;
+}
+
+/* Search results container */
+div[class*="searchResultsWrap_"] {
+    background-color: var(--bg-lighter) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   LAYER 5: LIGHTEST - Overlays and focus states
+   ----------------------------------------------------------------------------- */
+
+/* Popouts (user cards, etc.) */
+div[class*="popout_"][role="dialog"],
+div[class*="userPopoutOuter_"] {
+    background-color: var(--bg-lightest) !important;
+}
+
+/* Modals */
+div[class*="modal_"][role="dialog"],
+div[class*="modalContent_"],
+div[class*="root_"][class*="modal_"] {
+    background-color: var(--bg-lightest) !important;
+}
+
+/* Context menus */
+div[class*="menu_"][role="menu"],
+div[class*="contextMenu_"] {
+    background-color: var(--bg-lightest) !important;
+}
+
+/* Autocomplete dropdowns */
+div[class*="autocomplete_"],
+div[class*="autocompleteInner_"] {
+    background-color: var(--bg-lightest) !important;
+}
+
+/* Tooltips */
+div[class*="tooltip_"][role="tooltip"] {
+    background-color: var(--bg-lightest) !important;
+}
+
+/* Selected/focused message */
+div[class*="message_"][class*="selected_"],
+div[class*="message_"][class*="mentioned_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Settings sidebar selection */
+div[class*="selected_"][class*="item_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Selected channel in sidebar */
+div[class*="modeSelected_"] a[class*="link_"],
+div[class*="modeSelected_"]:hover a[class*="link_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   SCROLLBAR STYLING
+   ----------------------------------------------------------------------------- */
+
+/* Thin scrollbar base */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-darker);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--bg-darkest);
+    border-radius: 4px;
+    border: 2px solid var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--base03);
+}
+
+/* Discord's custom scrollbar classes */
+div[class*="scrollerBase_"]::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+div[class*="thin_"]::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* -----------------------------------------------------------------------------
+   REFINEMENTS
+   ----------------------------------------------------------------------------- */
+
+/* Toolbar - transparent to inherit from parent */
+div[class*="toolbar_"],
+div[class*="toolbar_"][class*="container_"],
+div[class*="toolbar__"],
+section[class*="toolbar_"] {
+    background-color: transparent !important;
+}
+
+/* Pinned messages / search bar area */
+div[class*="searchBar_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Voice connected panel */
+div[class*="connection_"][class*="voiceContainer_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* DM list in sidebar */
+div[class*="privateChannels_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+/* Activity/Now Playing cards */
+div[class*="activityCard_"] {
+    background-color: var(--bg-lighter) !important;
+}
+
+/* Reactions container - subtle lift from message */
+div[class*="reactions_"] {
+    background-color: transparent !important;
+}
+
+div[class*="reaction_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+div[class*="reaction_"]:hover {
+    background-color: var(--base03) !important;
+}
+
+/* New messages divider */
+div[class*="divider_"][class*="isUnread_"] {
+    --divider-color: var(--color05);
+}
+
+/* Typing indicator area */
+div[class*="typing_"] {
+    background-color: var(--bg-base) !important;
+}
+
+/* Bot tags - transparent background */
+span[class*="botTagRegular_"],
+span[class*="botTag_"] {
+    background: transparent !important;
+}
+
+/* Mentions - no background, orange text */
+span[class*="mention"],
+span[class*="wrapper_"][class*="interactive"] {
+    background: transparent !important;
+    color: var(--color05) !important;
+}
+
+span[class*="mention"]:hover,
+span[class*="wrapper_"][class*="interactive"]:hover {
+    background: transparent !important;
+    color: var(--color09) !important;
+    text-decoration: underline !important;
+}
+
+/* Links */
+a {
+    color: var(--color02) !important;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
+/* Expression Picker (emoji/GIF/sticker) */
+section[class*="positionContainer_"] div[class*="contentWrapper_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+div[class*="emojiPicker_"],
+div[class*="gifPicker_"],
+div[class*="stickerPicker_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+div[class*="emojiPicker_"] div[class*="header_"],
+div[class*="emojiPicker_"] div[class*="searchBar_"],
+div[class*="emojiPicker_"] nav[class*="nav_"],
+section[class*="positionContainer_"] nav[class*="nav_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+div[class*="emojiPicker_"] > div[class*="header_"]:not([class*="headerLabel"]) {
+    border-bottom: 1px solid var(--bg-darkest) !important;
+}
+
+/* Emoji picker inspector (bottom bar) */
+div[class*="inspector_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+div[class*="emojiPicker_"] div[class*="categoryItem_"]:hover,
+div[class*="emojiPicker_"] div[class*="categoryItem_"][class*="selected_"] {
+    background-color: var(--bg-darkest) !important;
+}
+
+/* Category section headers - bottom border for separation */
+div[class*="categorySection_"] > div[class*="wrapper_"][class*="header_"] {
+    border-bottom: 1px solid var(--bg-darkest) !important;
+    margin-bottom: 4px !important;
+}
+
+/* Category list sidebar - right border */
+div[class*="categoryList_"] {
+    border-right: 1px solid var(--bg-darkest) !important;
+}
+
+/* Emoji picker bottom corners */
+div[class*="emojiPickerHasTabWrapper_"] div[class*="emojiPicker_"] {
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+/* Server boost styling */
+div[class*="tierBody_"],
+div[class*="tierHeader_"] {
+    background-color: var(--bg-darker) !important;
+}
+
+div[class*="progressBar_"][class*="boost_"],
+div[class*="barForeground_"] {
+    background: linear-gradient(90deg, var(--color04), var(--color05)) !important;
+}
+
+div[class*="boostTile_"],
+div[class*="perkCard_"] {
+    background-color: var(--bg-lighter) !important;
+}
+
+div[class*="nitroHeader_"],
+div[class*="boostHeader_"] {
+    background: linear-gradient(135deg, var(--bg-darker), var(--bg-darkest)) !important;
+}
